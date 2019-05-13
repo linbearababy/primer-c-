@@ -1,0 +1,212 @@
+# Difference between Python and c++
+Python
+  Dynamic typing (determined at run-time)
+  Duck typing (if it quacks like a duck)
+C++
+  Static typing (determined at compile-time)
+  Lots of types
+  Modifiers to those types
+  The compiler must know the types of everything before it will compile
+
+# why c++
+Every programmer needs to know two classes of language
+Script-y language for everyday / simple kinds of things
+Ex: Python, javascript
+System-y kind of language that provides speed, efficiency, power to do harder, more computational stuff
+Ex: C++, C
+
+# waht is c++? 
+(1)General-purpose programming language
+  Imperative (势在必行）
+  Object-oriented （面向对象）
+(2)Developed by Bjarne Stroustrup between 1979-83
+  Enhanced C with Simula-like features
+  C++ 2.0 released in 1989
+  C++11 released in 2011
+
+# The STL
+The Standard Template Library (STL) is your best friend.
+Does things so you don’t have to
+We will focus on using the STL
+Use it when you can!
+
+Provides libraries that handle particular tasks
+  Containers
+  Algorithms
+  Memory management
+  
+  
+
+
+# Quote
+“C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do it blows your whole leg off.”
+-Bjarne Stroustrup
+
+# Types of error:
+(1)Compile-Time Error
+  Broke the rules of C++
+  Compiler doesn’t know what you want to do
+  Compiler flags the error and quits
+  No executable created!
+(2)Runtime Error
+   Followed the rules of C++ but still messed up
+   Executable was create but it did something wrong
+   
+   
+# Include
+To use aspects of the library system, you must include the definitions into the system
+Like import in python
+Table A.1 (pg 866-870) lists many of the elements and their associated include file
+
+# example for include
+      const map<string, vector<long>> const * m = &some_var;
+this stuff is all part of a single type declaration
+  A constant pointer to a constant map of strings to a vector of longs
+You have to declare your variable’s type
+It only holds that type (or does something weird to what you try to stuff into that type)
+
+# Some context required
+Syntax requires context
+   C++ tries to stay backwards-compatible with C (mostly)
+   C++ continues to add features to the language that really help
+   There are only so many characters on a standard keyboard
+Results in symbols that get reused to mean different things
+  The symbol is not enough to sort out what it means
+  Ex: aa bb(cc);
+    Declaration of object bb of type aa with variable cc passed to its constructor
+    Declaration of function bb that takes an object of type cc and return type aa
+
+# Another example
+  long my_int = 123;
+  long &ref_int = my_int; 
+  long *another_int = &my_int;
+  my_int = * another_int;
+  my_int = my_int * my_int;
+& means “a reference type” in line 2 and “the address of” in line 3
+* means “pointer type” in line 3, “value pointer points to” in line 3 and multiplication in line 5
+
+# first program: Hello, World
+          #include <iostream>
+          /*
+           * hello world program
+           */
+          int main() {
+          std::cout << “Hello, World!”; // output
+          }
+(1) includes         
+To use aspects of the library system, you must include the definitions into the system
+Like import in python
+Table A.1 (pg 866-870) lists many of the elements and their associated include file
+
+(2) #
+#include<iostream>
+  is a pre-processor statement
+It does not end in a semicolon
+  Part of the pre-processor, not C++
+What you include goes between the chevrons < and >
+  No .h or .hpp at the end of the include
+
+(3) comments, two kinds
+/* … */
+    Anything between those symbols are ignored
+    Multiline
+// …
+    Everything after this is ignored
+    One line only
+(4) main
+A runnable program requires a specific function named main
+This function is what will start the program when the compile code is loaded
+
+(5) {}
+Curly braces have multiple meanings
+    A block in the context of a function or a control statement (most common)
+    A sequence of statements that fill in for a single statement
+Indentation (and whitespace) means nothing
+    Only helps the reader
+    Like comments, it is helpful for making your code more readable
+    Can put many statements on a single line
+    The following is valid (but sucks)
+#include <iostream> /* hello world program*/ int main(){ std::cout << “hello, world” << std::endl; }
+
+(6) 
+When you use include you insert definitions into your program
+Those elements are in namespaces
+    We’ll talk more about those later
+    Need to reference them by their namespace
+    The common libraries are in the std namespace
+      Short for standard
+      Yes, it is an unfortunate acronym
+
+# the lazy typist
+No group of human beings are lazier typists than programmers
+  Short acronyms instead of full names
+  Short variable names
+Need to find a balance between readability and typing
+Different communities have different customs
+  Java tends to favor more descriptive names
+  Unix names: remove all of the vowels, randomly drop some letters, and maybe add a vowel back
+
+# Scope resolution operator
+. To differentiate namespaces, you include the namespace name followed by ::
+. :: is the scope resolution operator
+. std::cout means cout in the std (standard) namespace
+
+# streams
+When you #include <iostream> you get three streams to use
+. std::cout (short for console output)
+. std::cin (short for console input)
+. std::cerr (short for console error)
+
+# output
+. To move information from your program to output you use the << (insertion) operator
+. Take info and place it in the output
+. Is a binary operator
+    returns the stream being used
+. Outputs either strings (between “ ”) or the value in a C++ variable
+
+# "" vs ''
+>“abc” is a string type (sequence of characters)
+>‘a’ is a character type, a single character
+>Different than Python!
+
+#semicoions
+. C++ uses the ; (semicolon) to terminate a statement
+. Not all lines require them
+    Expressions require them
+    Declarations require them
+    Blocks do not require them
+. We’ll get the hang of where they go
+. A good editor will help with missing ; and similar issues
+
+#Google style
+>Why not use Google’s Style guide?
+> https://google.github.io/styleguide/cppguide.html
+> They have a very complete style guide
+    When in doubt, consult
+>Not a problem for the first project, will be later
+
+# Variable namees: rules and style
+Variable name rules
+    Only digits, letters, and underscore are allowed
+    Can’t start with a digit
+    Case matters
+    Namespace matters
+Variable name style
+    Lowercase with underscores between words (like in Python)
+    Meaningful / readable
+    Avoid unfamiliar abbreviations
+    
+#comments
+Comment at the top of the file
+    Name, date, what it is about
+Variable names shouldn’t require comments (descriptive names)
+Functions should have comments
+    Input, output, what it does
+“If it was hard to write, it will be hard to read”
+    Comment the hard parts
+
+
+
+
+
+  
