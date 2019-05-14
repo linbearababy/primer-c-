@@ -255,6 +255,134 @@ Many programs will give you a bit of documentation about themselves (like what a
 
       python -h
 
+
+# Command Completion
+One very common mistake in typing in any programming language are small typos that break your program or instruction. One way to avoid them is to use an autocompletion feature so you don't have to type out a full name or variable. When you hit the TAB key, the terminal attempts to fill the rest of the command of filename you are typing. If there isn't a unique match (for instance, you are typeing: "cp fi" and then hit TAB when there are files with the names "file_01" and "file_02" present), it will fill in as much as it can (in this case "cp file_0"). If you hit TAB again, the terminal will present the potential options that it can autofill with. You can specify more characters until a unique match is found.
+
+Example:
+
+cp f<TAB>
+cp file_0<TAB>
+cp file_02 f<TAB>
+cp file_02 file_0<TAB>
+cp file_02 file_01
+I recommend making use of tab completion as the terminal doesn't make typos, and humans do.
+
+命令完成
+输入任何编程语言的一个常见错误是打破你的程序或指令的小错别字。 避免它们的一种方法是使用自动完成功能，这样您就不必输入全名或变量。 当您点击TAB键时，终端会尝试填写您正在键入的其余文件名。 如果没有唯一匹配（例如，您正在键入：“cp fi”，然后在存在名称为“file_01”和“file_02”的文件时点击TAB），它将尽可能多地填写 （在本例中为“cp file_0”）。 如果再次点击TAB，终端将显示可以自动填充的潜在选项。 您可以指定更多字符，直到找到唯一匹配。
+
+例：
+
+cp f <TAB>
+cp file_0 <TAB>
+cp file_02 f <TAB>
+cp file_02 file_0 <TAB>
+cp file_02 file_01
+我建议使用制表符完成，因为终端不会拼写错误，人类也会这样做。
+
+# History
+The terminal remembers each command you type into it in its history. When you execute the history command, the terminal will report each command run, with a number. Example:
+
+  495  ls
+  496  cd ../../
+  497  ls
+  498  ls
+  499  cd ..
+  500  cp file_02 file_01
+  501  history
+You can run a command again by noting its number. For instance, !500 will run the cp command again.
+
+A neat trick is the !! command which runs the last command again.
+
+历史
+终端会记住您在其历史记录中键入的每个命令。 执行history命令时，终端将报告每个命令运行，并带有一个数字。 例：
+
+   495 ls
+   496 cd ../../
+   497 ls
+   498 ls
+   499 cd ..
+   500 cp file_02 file_01
+   501历史
+您可以通过记下其编号再次运行命令。 例如，！500将再次运行cp命令。
+
+一个巧妙的技巧是!! 命令再次运行最后一个命令。
+
+# Configuration (.bashrc and .bash_profile)
+Sometimes there are bash commands you always want to run before you get to work. Perhaps, you want your terminal to configure some settings, or tell you how much disk space you have left. To make this easier, there are two config files that BASH looks for (in your HOME directory).
+
+.bashrc is BASH script file is run everytime you invoke bash (example: bash my script.sh) and when you login in. .bash_profile is a script that runs when you login to your user account. Both of these are used to execute BASH commands that set up your environment.
+
+配置（.bashrc和.bash_profile）
+有时在你开始工作之前总是想要运行bash命令。 也许，您希望终端配置一些设置，或者告诉您剩余的磁盘空间。 为了使这更容易，BASH查找了两个配置文件（在您的HOME目录中）。
+
+.bashrc是每次调用bash时运行的BASH脚本文件（例如：bash my script.sh）和登录时.bash_profile是一个在您登录用户帐户时运行的脚本。 这两个用于执行设置环境的BASH命令。
+
+# Header Files
+If we are going to define a function in one file and use the function in a main file, we are going to have to find a way to inform the main file about the types of the function. That is, we have to tell the main file:
+
+the function's name
+the type the function returns
+the type of the parameters the function uses
+the name of each parameter is unimportant. It can be given, changed in the main function or just left out. All that matters is each parameter's type
+If we tell the main function this information, that is enough for the C++ compiler to check that the function is being used correctly in main, and by correctly I mean that main is using all the types correctly in calling the function, even though it does not yet have available the actual function code.
+
+Providing this information is the job of a header file. Header files that users write typically end in .h, and are used to indicate the type information of a some C++ elements (of functions, or classes, or some other C++ thing). This header file is used by the compiler to make sure that, whoever is using this function, they are at least using the types correctly. Thus without the function itself, we can know that we followed the compiler rules and used the correct types.
+
+Example
+Make a new directory/folder, call it lab6, as you have been doing all along (either with your File Browser and the Create Folder dropdown or with the command line command mkdir).
+
+The mkdir command takes a folder name and creates that (empty) folder. Example:
+
+mkdir lab6
+Download the following three files. Copy these files to your desktop (easiest, right click each file, then Save As into your lab 6 directory/folder).
+
+main.cpp
+extra.cpp
+extra.h
+Navigate your terminal to the "lab6" folder. Then compiler your three files with the following command:
+
+g++ -std=c++11 -Wall  *.cpp
+That means, it will compile all (* means all names, *.cpp means all files ending in .cpp) the .cpp files and build an executable.
+
+Two warnings!
+It's nice that the previous command compiles all the files, but if you have too many files (from different projects, things you are working on temporarily etc.) it won't work. Instead, you can do it with a list of files. You can even name your executable using the -o modifier to be something than the dreaded a.out.
+g++ -std=c++11 -Wall file1.cpp file2.cpp file3.cpp -o namedExecutable.exe
+We never compile a .h file. That doesn't make any sense. All a .h file provides is a list of declarations to be used by other files. It is never compiled and would not show up in the list of files to compile (shown above).
+
+头文件
+如果我们要在一个文件中定义一个函数并在主文件中使用该函数，我们将不得不找到一种方法来通知主文件有关函数类型的信息。也就是说，我们必须告诉主文件：
+
+函数的名称
+函数返回的类型
+函数使用的参数类型
+每个参数的名称都不重要。它可以在主函数中给出，改变或者只是省略。重要的是每个参数的类型
+如果我们告诉main函数这个信息，这足以让C ++编译器检查函数是否在main中正确使用，并且正确的意思是main在调用函数时正确地使用了所有类型，即使它确实还没有可用的实际功能代码。
+
+提供此信息是头文件的作用。用户编写的头文件通常以.h结尾，用于指示某些C ++元素（函数，类或其他一些C ++事物）的类型信息。编译器使用此头文件来确保使用此函数的用户至少正确使用这些类型。因此，如果没有函数本身，我们可以知道我们遵循编译器规则并使用了正确的类型。
+
+例
+创建一个新目录/文件夹，将其称为lab6，就像您一直在做的那样（使用文件浏览器和创建文件夹下拉列表或使用命令行命令mkdir）。
+
+mkdir命令采用文件夹名称并创建该（空）文件夹。例：
+
+mkdir lab6
+下载以下三个文件。将这些文件复制到桌面（最简单，右键单击每个文件，然后另存为您的lab 6目录/文件夹）。
+
+main.cpp中
+extra.cpp
+extra.h
+将终端导航到“lab6”文件夹。然后使用以下命令编译您的三个文件：
+
+g ++ -std = c ++ 11 -Wall * .cpp
+这意味着，它将编译所有（*表示所有名称，* .cpp表示以.cpp结尾的所有文件）.cpp文件并构建可执行文件。
+
+两个警告！
+上一个命令编译所有文件很好，但如果你有太多的文件（来自不同的项目，你正在临时工作等等），它将无法正常工作。相反，您可以使用文件列表来完成。您甚至可以使用-o修饰符将可执行文件命名为可怕的a.out。
+g ++ -std = c ++ 11 -Wall file1.cpp file2.cpp file3.cpp -o namedExecutable.exe
+我们从不编译.h文件。这没有任何意义。所有.h文件提供的是其他文件要使用的声明列表。它永远不会被编译，也不会出现在要编译的文件列表中（如上所示）。
+
+
 # g++ -std=c++11 -Wall (file or cpp) （运行）
 
 # ./a.out (输出）
