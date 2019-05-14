@@ -31,5 +31,8 @@ The operations on these numbers are, respectively: + (sum), - (difference), * (p
 If an integer is divided by another integer, the result is an integer. Thus the result of 6/4 is 1. In contrast, 6.0/4 is 1.5. That is, the / operation results in the integer quotient if using integers, floats if using floats. The result of 6%4 is the integer remainder of the division, thus 2 (6 divided by 4 is 1 with a remainder of 2). There is no equivalent for % in floating point math.
 
 provide 2 decimal points of accuracy using std::fixed and std::setprecision (the later requiring #include<iomanip>). You would use them as follows:
+      
       std::cout << std::fixed;
       std::cout << std::setprecision(2);
+
+
