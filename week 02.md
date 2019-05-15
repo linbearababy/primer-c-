@@ -34,5 +34,41 @@ provide 2 decimal points of accuracy using std::fixed and std::setprecision (the
       
       std::cout << std::fixed;
       std::cout << std::setprecision(2);
+      
+
+# The Files
+extra.cpp : It defines the function extra which will be used in the main program.
+
+extra.h : This is the header file. Notice that is only really provides the declaration of the function.
+      In the declaration, the names of the parameters are not required, only their types.
+      Note that the function declaration ends in a ; (semicolon). Don't forget!!!
+      There are some weird # statements, we'll get to that.
+main.cpp : This is the main program. Notice that it has the following statement in it:
+
+#include "extra.h"
+This means that the main program is "including" the declaration of the function so that the compiler may check the type use of extra by main. Notice the quotes. When the include uses quotes, it is assumed that the .h file is in the same directory as the other files. Includes with <> means get the includes from the "standard include place". Since it is our include file, we need to use quotes for it.
+
+# Function split
+The split function should take in a string and return a vector<string> of the individual elements in the string that are separated by the separator character (default ' ', space). Thus: "hello mom and dad" → {"hello", "mom", "and", "dad"}
+
+Open functions.h and store the function declaration of split there. The declaration should be:
+
+                 vector<string> split (const string &s, char separator=' ');
+As discussed in lecture, default parameter values go in the header file only. The default does not occur in the definition if it occurred in the declaration.
+This header file should wrap all declarations using the #ifndef, #define, #endif as discussed above. Make up your own variable.
+Open functions.cpp and write the definition of the function split. Make sure it follows the declaration in functions.h. The parameter names do not matter but the types do. Make sure the function signature (as discussed in lecture) match for the declaration and definition.
+You can compile functions.cpp (not build, at least not yet) to see if functions.cpp is well-formed for C++. It will not build an executable, but instead a .o (object) file. The object file is the result of compilation but before building an executable, an in-between stage.
+      
+
+# Function print_vector
+This function prints all the elements of vector<string> v to the ostream out provided as a reference parameter (it must be a reference). Note out and v are passed by reference.
+
+      print_vector : Store the function print_vector in functions.cpp, put its declaration       in functions.h. It should look a lot like the below:
+      
+      void print_vector (ostream &out, const vector<string> &v);
+compile the function (not build, compile) to make sure it follows the rules.
+
+
+
 
 
