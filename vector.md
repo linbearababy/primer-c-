@@ -56,4 +56,51 @@ eg:
 
 # string 的操作
 （1）读写 用IO操作符直接读写 （cin, cout)
-（2）getline 读取一整行
+
+（2）getline 读取
+getline 函数的参数是一个输入流和一个string对象。 函数从给定的输入流中读入内容，直到遇到换行符为止（注意换行符也读入了）， 然后把所读的内容存入到那个string对象去（不存换行符）。 getline 读取的换行符在返回结果时被去掉了。
+
+      #include <string>
+      #include <iostream>
+      #include <sstream>
+
+      int main()
+      {
+          // greet the user
+          std::string name;
+          std::cout << "What is your name? ";
+          std::getline(std::cin, name);
+          std::cout << "Hello " << name << ", nice to meet you.\n";
+
+          // read file line by line
+          std::istringstream input;
+          input.str("1\n2\n3\n4\n5\n6\n7\n");
+          int sum = 0;
+          for (std::string line; std::getline(input, line); ) {
+              sum += std::stoi(line);
+          }
+          std::cout << "\nThe sum is: " << sum << "\n";
+      }
+      Possible output:
+
+      What is your name? John Q. Public
+      Hello John Q. Public, nice to meet you.
+
+      The sum is 28
+
+
+输出一整行：
+
+      int main(){
+        string line;
+        //每次输入一整行， 直到文件末尾
+        while (getline(cin, line)){
+          cout<< line<<endl;}
+        return 0;}
+        
+（3）string size()
+
+ (4)string 
+ 
+#
+
