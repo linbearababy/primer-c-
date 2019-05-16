@@ -205,15 +205,52 @@ cout<<s<<endl;          //Some string
 对于模版来说，我们通过提供一些额外信息来指定模版实例化成什么样的类，需要提供哪些信息需要模版来决定。提供信息的方式：在模版名字后边跟一对尖括号，在括号内放上信息。
 eg: 
 
-vector<int> ivec;      //ivec 保存int 类型的对象
-vector<vector<string>> file;          //该向量元素是vector对象
+      vector<int> ivec;      //ivec 保存int 类型的对象
+      vector<vector<string>> file;          //该向量元素是vector对象
 ** 
 
 vector能容纳绝大多数类型的对象作为其元素，但是因为引用不是对象，所以不存在包含引用的vector。 除此之外，其他大多数（非引用）内置类型和类类型都可以构成vector对象， 甚至组成vector的元素也可以是vector。
 
 # 定义和初始化vector对象
+. vector模版控制着定义和初始化向量的方法。 常用方法：
 
-
+      vector <T> v1           //v1 是一个空vector，它潜在元素类型是T，执行默认初始化
+      vector <T> v2(v1)        //v2 中包含v1的副本
+      vector <T>  v2=v1        //等价于v2（v1)
+      vector <T>  v3(n,val)    //v3包含了n个重复元素，每个元素值是val
+      vector <T>  v4(n)        //v4包含了n个重复执行了值初始化的对象
+      vector <T>v5{a,b,c,...}  //v5包含了初始值个数的元素，每个元素被赋予相应的初始值
+      vector <T> v5={a,b,c,...}  //同vector <T>v5{a,b,c,...} 
   
 
+. 一般先建一个空vector，然后当运行时获取到元素的值后再逐一添加。
 
+  当然也可以在定义vector对象时指定元素的初始值，例如把一个vector对象的元素拷贝给另外一个vector的对象。此时，新vector对象元素就是原vector对象对应元素的副本。注意两个vector对象的类型必须相同。
+eg:
+
+    vector<int> ivec;              //初始状态
+    vector<int> ivec2(ivec);       //把ivec的元素拷贝给ivec2
+    vector<int> ivec3=ivec;        //把ivec的元素拷贝给ivec3
+    vector<string> svec(ivec2);    //错： 两者对象的类型不一样
+ 
+ . 列表初始化vector对象
+   c++ 11 提供了另外一种为vector对象的元素赋值法，及列表初始化。 用花括号括起来的0个或多个初始元素值背负给vector对象。
+   
+     vector<string> v1{"a","an", "the"}   //right: 列表初始化
+     vector<string> v2("a","an", "the")    //false， 没用花括号
+     
+. 创建指定个数 
+
+     vector<int> ivec(10,-1)     // 10个int类型的元素， 每个元素值被初始化为-1
+     vector<string> svec(10,"hi")    //10个string类型的元素， 每个元素值被初始化为hi
+  
+ . 值初始化
+ 
+  通常情况下，可以只提供vector对象容纳的元素数量而不去略去初始值。此时库会创建一个值初始化的（value-initialized) 元素初始值，并把它赋给容器中的所有元素。这个值的类型由vector对象中的元素类型决定。
+    
+    vector<int> ivec(10)；   //10个元素，每个初始化为0
+    vector<string> ivec(10)   //10个元素，每个初始化为空string对象
+    vector<int> v1=10           //false,只有元素数量没有设定初始值
+ . 列表初始值还是元素数量  
+  
+  
