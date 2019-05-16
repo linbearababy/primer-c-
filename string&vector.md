@@ -253,4 +253,20 @@ eg:
     vector<int> v1=10           //false,只有元素数量没有设定初始值
  . 列表初始值还是元素数量  
   
+  在某些情况下，初始化的真实依赖于传递初始值时用的是花括号还是圆括号。
+  圆括号，提供的值是用来构造（construct）vector 对象的
+  花括号表示我们想要列表初始化 （list initialize) vector 对象
   
+    vector<int> v1(10);        //v1有10个元素，每个元素值为0
+    vector<int> v2{10};        //有一个元素， 元素值为10
+    vector<int> V3(10,1);       //有10个元素， 每个值为1
+    vector<int> V4{10,1};       //有两个元素，值为10，1
+  
+  如果初始化时使用了花括号的形式但是提供的值又不能用来列表初始化，就要考虑用这样的值来构造vector对象了。
+     
+     vector<string> v5{"hi"};          // 列表初始化： 有一个元素
+     vector<string> v6("hi");          //false： 不能使用字符串字面值构建vector
+     vector<string> v7{10};           //有10个默认初始化的元素
+     vector<string> v8{10,"hi"};        //有10个值为“hi"的元素
+     
+     
