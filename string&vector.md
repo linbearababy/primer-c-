@@ -138,8 +138,82 @@ eg:
      
 （8）处理string对象中的字符
 
+. 常用的string函数：
+
+ ![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-16%2011.15.57.png)
 
 
+. 处理每个字符： （for loop）
+
+      string str("some string") ;
+      for (auto c : str){      //对于str中每个字符
+        cout<< c<< endl;}      // 输出当前字符，后面紧跟一个换行符
+  
+for loop把变量c和str 联系了起来。此例中，我们使用auto 关键字让编译器来决定变量c的类型，这里c的类型是char. 每次迭代，str 中的每个字符被拷贝给c。输出一个，然后换行。
+
+. 使用范围for 语句改变字符串中的字符：
+
+如果想改变string对象中字符的值，必须把循环变量定义成引用类型【（参见2.3.1）补充】。所谓的引用只是给定对象的一个别名， 因此当使用引用作为循环控制变量时，这个变量实际上被依次绑定到了序列的每个元素上。使用这个变量我们就能改变绑定他的字符。
+eg:
+
+      string s("Hello World!!!"); 
+      //转换大写形式
+      for (auto &c : s){      //对于s中的每个字符
+      c = toupper(c);}        //c是一个引用， 因此赋值语句将变成s中字符的值
+      cout<<s<<endl;           //HELLO, WORLD!!!
+
+. 只处理部分字符
+
+处理string对象中每一个字符，使用范围for loop是个好主意。 然而有时我们需要访问的只是其中一部分字符， 这时有两种方法： （1）访问下标； （2） 使用迭代器（3.4 和第九章）
+
+> 下标运算符（[ ]) ：
+其接受的输入参数是string::size_type类型的值，这个参数表示访问的位置，返回值是该位置上字符的引用。
+string对象的下标从0开始计。 如果string 对象s至少包含两个字符，则s[0]是第一个字符， s[1] 是第二个字符， s[s.size()-1]是最后一个字符。
+
+eg: 
+string s("some string") 
+if (!s.empty())
+  s[0] = toupper(s[0]);
+cout<<s<<endl;          //Some string
+
+>使用迭代器
+
+      //依次处理s中的字符直到遇到空格
+      for (decltype(s.size())  index=0; index !=s.size() && !isspace(s[index]); ++index)
+            s[index] = toupper[s[index]];      
+      cout<<s<<endl;          // SOME string
  
-#
+ 此过程中， for循环变量使用index作为s的下标， index的类型是由decltype关键字决定的。 首先index初始化为0， 这样迭代器就从s的首字母开始；之后每次迭代index都加1得到s中的在一个字符，直到末尾或者空格结束。
+ 
+ > 使用下标执行随机访问
+ 
+ 通过计算得到某个下标值，然后直接获取对应位置的字符
+ 
+# 标准库类型 vector
+
+标准库类型vector表示对象的集合， 其中所有对象的类型都相同。 集合中的每个对象都有一个与之对应的索引， 所用于访问对象。 因为 vector“容纳着”其他对象， 所以他也被称作容器（container）。
+
+(1)使用vector： 
+
+      #include <vector>
+      using std::vector;
+  
+(2) c++ 语言中有： 类模版（class template）， 和 函数摸版。 其中vector是class template。
+
+** 模版本身不是类或者函数，可以将模版看作为编译器声成类或函数编写的一份说明。编译器根据模版创建类或者函数的过程称为实例化（instantiation), 当使用模版时，需要指出编译器应把类或函数实例化成什么类型。
+
+对于模版来说，我们通过提供一些额外信息来指定模版实例化成什么样的类，需要提供哪些信息需要模版来决定。提供信息的方式：在模版名字后边跟一对尖括号，在括号内放上信息。
+eg: 
+
+vector<int> ivec;      //ivec 保存int 类型的对象
+vector<vector<string>> file;          //该向量元素是vector对象
+** 
+
+vector能容纳绝大多数类型的对象作为其元素，但是因为引用不是对象，所以不存在包含引用的vector。 除此之外，其他大多数（非引用）内置类型和类类型都可以构成vector对象， 甚至组成vector的元素也可以是vector。
+
+# 定义和初始化vector对象
+
+
+  
+
 
