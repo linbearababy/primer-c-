@@ -130,10 +130,14 @@ eg:
     string s3 =s1 + ", " + s2+ '\n';      // 当把string对象和字符字面值及字符串混在一起时，每个“+”符的两侧的运算对象至少有一个是string。
     
     eg: 
-     string s4 =s1+ ", "
-     string s5= "hello" +","
-     string s6= s1+ ", "+ s2
-     string s7= "hello" + ", "+ s2
+     string s4 =s1+ ", ";        // true
+     string s5= "hello" +","       // false: 两个运算对象都不是string
+     string s6= s1+ ", "+ s2       //true
+     string s7= "hello" + ", "+ s2   // false： 第一个加号加号两侧都不是string
+     
+     
+（8）处理string对象中的字符
+
 
 
  
