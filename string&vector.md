@@ -314,3 +314,38 @@ eg:
 ![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-18%2017.56.46.png)
 
 ![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-18%2017.57.15.png)
+
+(5) 不能用下标形式添加元素
+eg: 
+
+    vector<int> invec;
+    for (decltype(ivec.size()) ix=0; ix !=10; ++ix) {
+      ivec[ix]= ix;}
+      
+这段代码是错误的： ivec是一个空的vector,其中没有任何元素，当然就不能用下标去访问任何元素！所以
+正确的方法是用push_back：
+
+    for (decltype(ivec.size()) ix=0; ix !=10; ++ix){
+      ivec.push_back(ix);}
+      
+# 迭代器
+# 迭代器介绍
+  
+  我们知道可以使用下标运算符来访问string对象的字符或者vector对象的元素；还有另外一种更通用的方式，就是迭代器（iterator）。所有标准库容器都可以用迭代器（如vector),但是只有少数几种才同时支持下标运算符。严格来讲
+  string不属于容器类型，但是string支持很多与容器类型类似的操作。
+  
+  类似于指针类型，迭代器也提供了对对象的间接访问。迭代器可以访问一个元素，迭代器也能从一个元素一到另一个元素。迭代器有有效和无效之分。有效的：迭代器指向某个元素，或者指向容器末尾元素的下个位置，其他所有情况都属于无效。
+
+#使用迭代器
+  和指针不一样的是，获取迭代器不是使用地址符，有迭代器的类型同时拥有返回迭代器的成员。如这些类型都拥有名为begin和end的成员。
+  begin 成员函数负责返回指向第一个元素（或者第一个字符）的迭代器；
+  
+      //由编译器决定b和e的类型
+      //b表示v的第一个元素， e表示v的尾元素的下一个位置
+      auto b= v.begin(), e.end();    //b和 e的类型相同
+      
+  end成员指向容器或者string对象“尾元素的下一个位置（one past the end）”的迭代器， 即该迭代器指示的是容器的一个不存在的“尾后（off the end）”。叫做尾后迭代器（off the end iterator）。 特殊情况下， 如果容器为空，则begin和end返回的是一个迭代器，都是尾后迭代器。
+  
+# 迭代器的运算
+  
+  
