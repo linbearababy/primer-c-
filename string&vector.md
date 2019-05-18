@@ -269,4 +269,19 @@ eg:
      vector<string> v7{10};           //有10个默认初始化的元素
      vector<string> v8{10,"hi"};        //有10个值为“hi"的元素
      
+ # 向vector中添加元素
+ 利用push_back 成员函数向其中添加元素。 push_back 负责把一个值当成vector对象的尾元素“压到（push)" vector 对象的尾端：
+ 
+       vector<int> v2;                 //build an empty vector 
+       for (int i=0; i!=00; ++i){         
+          v2.push_back(i);}               //依次把整数值放到v2尾端
+          //循环结束后， v2 有100个元素，值从0到99
+
+. vector 能方便高效的加入新元素，很多程序得到简化。但是要求：其中一条就是保证所写的循环正确无误，特别是在循环在有可能改变vector对象容量的时候。
+  
+  如果循环体内部包含有向vector对象添加元素的语句，则不能使用for循环（ for 循环语句内不应该改变其遍厉序列的大小。
+  
+  # vector 其他操作
+  
+  
      
