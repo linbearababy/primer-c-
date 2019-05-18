@@ -283,5 +283,30 @@ eg:
   
   # vector 其他操作
   
-  
+  ![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-18%2017.15.20.png)
      
+（1) 访问vector 对象中的元素方法也是通过元素在vector 对象中的位置。
+
+    vector<int> v{1,2,3,4,5,6,7,8,9};
+    for (auto &i: v){           //对于v中每个元素（注意是引用，之前提到过）
+      i*=i;}                    // 求元素值的平方
+    for (auto i:v){             // 对于v中的每个元素
+      cout<< i<< " ";}           //输出该元素
+    cout<<endl;
+
+(2)vector 的empty & size 功能和用法与string 完全一样
+但注意 ： 要使用size_typ， 需要确定它是由哪种类型定义的。vector对象的类型总是包含着元素的类型
+
+    vector<int> ::size_type            //正确
+    vector::size_type                  //错误
+
+（3）
+两个vector 相等， 当且仅当他们所含的元素个数相同，而且对应位置的元素值也相同。
+如果两者的容量不同，但是相同位置上的元素值一样。则元素较少的小于元素较多的
+元素值有区别：则大小关系由第一对相异的元素值的大小关系决定
+
+当只有元素的值可比较时。vector对象才能被比较。
+
+（4）计算vector内对象的索引
+和string 一样，vector 也是使用下标运算符。
+eg: 
