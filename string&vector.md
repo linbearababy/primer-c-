@@ -310,3 +310,7 @@ eg:
 （4）计算vector内对象的索引
 和string 一样，vector 也是使用下标运算符。
 eg: 
+
+![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-18%2017.56.46.png)
+
+
