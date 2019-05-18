@@ -394,5 +394,7 @@ eg:
 解引迭代器可获得所指对象，如果该对象的类型恰好是类， 就有可能希望进一步访问他的成员。
 eg: for vector
 
+  ![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-18%2019.52.08.png)
   
+  解引，c++ 简化： 箭头运算符（ -> ),箭头运算符把解引和成员访问两个操作结合在一起，也就是说，it->item和(*it).men表达意思相同。
   
