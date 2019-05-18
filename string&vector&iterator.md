@@ -361,3 +361,36 @@ eg:
 
 (2)将一个迭代器从一个元素一到另一个元素
 
+迭代器使用递增（++）运算符来从一个元素移到下一个元素。 (end 返回的迭代器并不实际指向某个元素，所以不能对其用递增或者解引）
+eg:
+
+    string s("some string")
+    for (auto it =s.begin(); it !=s.end() && !isspace(*it); ++it){
+      *it =toupper(*it);
+      }
+(3) 迭代器类型
+
+一般来说我们也不知道迭代器的精确类型。实际上那些拥有迭代器的标准库类型使用iterator 和const_iterator来表示迭代器的类型：
+
+    vector<int>::iterator it;             //it 能读写vector<int>的元素
+    string::iterator it2;                  //it2 能读写string对象中的字符
+    vector<int>::const_iterator  it3;       //it3只能读元素，不能写元素
+    string::const_iterator  it4;             //it4 只能读字符， 不能写字符
+
+const_iterator和常量指针差不多，能读取但不能修改他所指的的元素值。 相反，iterator的对象可读可写。
+
+（4）begin 和end 元素符
+
+begin 和end 返回的值具体类型是由对象是否是常量决定的。 如果是常量，则返回const_iterator；如果不是，则返回iterator.
+eg: 
+
+    vector<int>v;
+    const vector<int> cv;
+    auto it1 =v.begin();           //it1 的类型是vector<int>::iterator
+    auto it2 = cv.begin();         it1 的类型是vector<int>::const_iterator
+
+(5)结合解引用成员访问
+
+
+  
+  
