@@ -416,5 +416,6 @@ string和vector 的迭代器提供了更多的运算符， 称为迭代器运算
 
 使用迭代器运算的经典算法是二分搜索
 
+![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-18%2020.10.02.png)
 
 
