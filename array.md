@@ -13,3 +13,6 @@
 
 ![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-18%2020.36.06.png)
 
+理解复杂的数组声明
+
+和vector一样,数组能存放大多数类型的对象。例如
