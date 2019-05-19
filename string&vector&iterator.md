@@ -398,3 +398,6 @@ eg: for vector
   
   解引，c++ 简化： 箭头运算符（ -> ),箭头运算符把解引和成员访问两个操作结合在一起，也就是说，it->item和(*it).men表达意思相同。
   
+（6）迭代器运算
+
+string和vector 的迭代器提供了更多的运算符， 称为迭代器运算（iterator arithmetic）
