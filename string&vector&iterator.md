@@ -398,6 +398,23 @@ eg: for vector
   
   解引，c++ 简化： 箭头运算符（ -> ),箭头运算符把解引和成员访问两个操作结合在一起，也就是说，it->item和(*it).men表达意思相同。
   
-（6）迭代器运算
+（6）迭代器运算 
 
 string和vector 的迭代器提供了更多的运算符， 称为迭代器运算（iterator arithmetic）
+
+![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-18%2020.00.55.png)
+
+(7)迭代器的算数运算
+
+可以令迭代器和一个整数值相加减，器返回值是向前或向后移动了若干个位置的迭代器。
+
+    eg:
+    auto mid = v1.begin() + v1.siaze() /2 ;
+如果v1有20个元素，v1.size()/2 =10, mid = v.begin() +10; 则迭代器所指的元素是v1[10]. 
+
+(8)使用迭代器运算
+
+使用迭代器运算的经典算法是二分搜索
+
+
+
