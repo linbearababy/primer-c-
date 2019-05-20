@@ -175,3 +175,7 @@ vector and string 的迭代器支持的运算，数组的指针全都支持。eg
     in k =p[-2];                 //p[-2] 是ia[0] 表示的那个元素
 
 # 多维数组
+
+![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-20%2019.41.54.png)
+
+# 多维数组的初始化
