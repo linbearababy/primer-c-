@@ -180,5 +180,6 @@ vector and string 的迭代器支持的运算，数组的指针全都支持。eg
 
 # 多维数组的初始化
 
+![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-20%2019.46.14.png)
 
 # 多维数组的下标引用
