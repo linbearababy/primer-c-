@@ -383,11 +383,16 @@ stringstream:  既可以从string读数据，也可以向string写数据。
     while (getline(cin,line)){
         PersonInfo info;                        //创建一个保存此记录数据的对象
         isstringstream record(line);            
-        record >> info.name;
-        while (record >> word)
+        record >> info.name;                   //读取名字
+        while (record >> word)                  //读取电话号码
             info.phone.push_back(word);
         people.push_back(info);
     }
     
 我们用getline 从标准库输入读取整条记录。如果getline调用成功，那么line只将保存着从输入文件而来的一条记录。在while中，定义了一个局部PersonInfo对象，来保存当前记录的数据。
+
+![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-22%2016.25.51.png)
+
+# Ostringstream
+主要用来输出
 
