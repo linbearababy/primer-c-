@@ -389,5 +389,5 @@ stringstream:  既可以从string读数据，也可以向string写数据。
         people.push_back(info);
     }
     
-我们用getline 从标准库输入读取整条记录。如果getline调用成功，那么line只将保存着从输入文件而来的一条记录。
+我们用getline 从标准库输入读取整条记录。如果getline调用成功，那么line只将保存着从输入文件而来的一条记录。在while中，定义了一个局部PersonInfo对象，来保存当前记录的数据。
 
