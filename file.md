@@ -396,3 +396,4 @@ stringstream:  既可以从string读数据，也可以向string写数据。
 # Ostringstream
 主要用来输出
 
+![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-22%2016.33.41.png)
