@@ -3,3 +3,6 @@
 # IO 类
 
 ![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-22%2012.58.09.png)
+
+# io 类型间的关系
+
