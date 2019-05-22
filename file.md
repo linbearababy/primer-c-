@@ -25,4 +25,6 @@
 
 这些类型提供的操作和我们之前说的对象cout and  cin 的操作一样。我们可以用io运算符（ << 和 >>) 来读写文件，可以用getline从一个ifstream 读取数据。
 
-除了继承自iostream类型
+除了继承自iostream类型的行为之外， fstream中定义的类型还增加了一些新的成员来管理与流关联的文件。我们可以对fstream, ifstream, ofstream对象调用这些操作，但不能对其他io类型调用这些操作。
+
+
