@@ -44,6 +44,9 @@
 
 在要求使用基类型对象的地方，我么可以用继承类型的对象来代替。这意味着，接受一个iostream 类型引用（或指针）参数的函数，可以使用一个对应的fstream(或sstream)类型来调用。也就是说，如果有一个函数接受一个ostream&参数，我们在调用这个函数时，可以传递给他一个ofstream对象，对istream& 和 ifstream 也是类似的。
 
+例如，我们可以用
+
+
 # 常用方法
 
 （1）打开文件
@@ -337,12 +340,54 @@
 　　输出m[0]的值:kskr1 
 　　输出m[1]的值:kskr2 
 　　输出m[2]的值:kskr3 
-　　自我感觉gets()和cin.getline()的用法很类似，只不过cin.getline()多一个参数罢了； 
-　　这里顺带说明一下，对于本文中的这个kskr1,kskr2,kskr3的例子，对于cin>>也可以适用，原因是这里输入的没有空格，如果输入了空格，比如“ks kr jkl[回车]”那么cin就会已经接收到3个字符串，“ks,kr,jkl”；再如“kskr 1[回车]kskr 2[回车]”，那么则接收“kskr,1,kskr”；这不是我们所要的结果！而cin.getline()和gets()因为可以接收空格，所以不会产生这个错误。
+　　自我感觉gets()和cin.getline()的用法很类似，只不过cin.getline()多一个参数罢了；
+这里顺带说明一下，对于本文中的这个kskr1,kskr2,kskr3的例子，对于cin>>也可以适用，原因是这里输入的没有空格，如果输入了空格，比如“ks kr jkl[回车]”那么cin就会已经接收到3个字符串，“ks,kr,jkl”；再如“kskr 1[回车]kskr 2[回车]”，那么则接收“kskr,1,kskr”；这不是我们所要的结果！而cin.getline()和gets()因为可以接收空格，所以不会产生这个错误。
    --------------------- 
 （作者：木顶思上 
 来源：CSDN 
 原文：https://blog.csdn.net/JIEJINQUANIL/article/details/50802902 
 版权声明：本文为博主原创文章，转载请附上博文链接！）
 
+# string 流：
+sstream 头文件定义了三个类型来支持内存IO，这些类型可以向string写入数据，从string读取数据，就像string是一个io流一样：
+
+istringstream: 从string读取数据
+ostringstream: 向string写入数据
+stringstream:  既可以从string读数据，也可以向string写数据。
+
+# istringstream
+
+当我们的某些工作是对整行文本进行处理，而其他一些工作是处理行内的单个单词时，通常可以使用 istringstream。
+
+考虑这样一个例子，假设有一个文件，列出了一些人和他们的电话号码。某些人只有一个号码，而另一些人则有多个 ---家庭电话，工作电话，移动电话等。我们输入的文件看起来可能是这样的：
+
+        Morgan  2015552368   8625550123
+        drew    9735550130
+        lee     6095550132   8005550000
+        
+首先定义一个简单的类：
+//成员默认为公有：
+
+    struct PersonInfo{
+        string name;
+        vector<string> phones;
+    };
+
+类型PersonInfo 的对象会有一个成员来表示人名，还有一个vector来保存此人的所有电话号码。
+
+我们的程序会读取数据文件，并创建一个PersonInfo 的vector。 vector 中每个元素对应文件中的一条记录。我们在一个循环中处理输入数据，每个循环步读取一条记录，提取出一个人名和若干电话号码：
+
+    string line, words;                        //分别保存来自输入的一行和单词
+    vector<PersonInfo>people;                   //保存来自输入的所有记录
+    //逐行输入读取数据，直至cin 遇到文件尾（或其他错误）
+    while (getline(cin,line)){
+        PersonInfo info;                        //创建一个保存此记录数据的对象
+        isstringstream record(line);            
+        record >> info.name;
+        while (record >> word)
+            info.phone.push_back(word);
+        people.push_back(info);
+    }
+    
+我们用getline 从标准库输入读取整条记录。如果getline调用成功，那么line只将保存着从输入文件而来的一条记录。
 
