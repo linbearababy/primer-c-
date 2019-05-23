@@ -60,3 +60,5 @@ c++11 新标准规定，可以给数据成员提供一个类内初始值（in-cl
       //检查data1 and data2 的ISBN是否相同
       //如果相同，求data1 and data2的总和
       }
+
+![](https://github.com/linbearababy/primer-c-/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%2011.00.51.png)
