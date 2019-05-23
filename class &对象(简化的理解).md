@@ -191,3 +191,90 @@ C++ 在 C 语言的基础上增加了面向对象编程，C++ 支持面向对象
 
             Box1 的体积： 210
             Box2 的体积： 1560
+
+# 类的访问修饰符
+
+
+数据封装是面向对象编程的一个重要特点，它防止函数直接访问类类型的内部成员。类成员的访问限制是通过在类主体内部对各个区域标记 public、private、protected 来指定的。关键字 public、private、protected 称为访问修饰符。
+
+一个类可以有多个 public、protected 或 private 标记区域。每个标记区域在下一个标记区域开始之前或者在遇到类主体结束右括号之前都是有效的。成员和类的默认访问修饰符是 private。
+
+      class Base {
+               public:
+              // 公有成员
+
+               protected:
+              // 受保护成员  
+
+               private:
+              // 私有成员
+            };
+      
+(1)公有（public）成员
+公有成员在程序中类的外部是可访问的。您可以不使用任何成员函数来设置和获取公有变量的值
+
+(2)私有（private）成员
+私有成员变量或函数在类的外部是不可访问的，甚至是不可查看的。只有类和友元函数可以访问私有成员。
+
+默认情况下，类的所有成员都是私有的。例如在下面的类中，width 是一个私有成员，这意味着，如果您没有使用任何访问修饰符，类的成员将被假定为私有成员：
+
+            class Box
+            {
+               double width;
+               public:
+                  double length;
+                  void setWidth( double wid );
+                  double getWidth( void );
+            };
+            
+实际操作中，我们一般会在私有区域定义数据，在公有区域定义相关的函数，以便在类的外部也可以调用这些函数，如下所示:
+
+            #include <iostream>
+
+            using namespace std;
+
+            class Box
+            {
+               public:
+                  double length;
+                  void setWidth( double wid );
+                  double getWidth( void );
+
+               private:
+                  double width;
+            };
+
+            // 成员函数定义
+            double Box::getWidth(void)
+            {
+                return width ;
+            }
+
+            void Box::setWidth( double wid )
+            {
+                width = wid;
+            }
+
+            // 程序的主函数
+            int main( )
+            {
+               Box box;
+
+               // 不使用成员函数设置长度
+               box.length = 10.0; // OK: 因为 length 是公有的
+               cout << "Length of box : " << box.length <<endl;
+
+               // 不使用成员函数设置宽度
+               // box.width = 10.0; // Error: 因为 width 是私有的
+               box.setWidth(10.0);  // 使用成员函数设置宽度
+               cout << "Width of box : " << box.getWidth() <<endl;
+
+               return 0;
+            }
+            当上面的代码被编译和执行时，它会产生下列结果：
+
+            Length of box : 10
+            Width of box : 10
+            
+保护（protected）成员
+保护成员变量或函数与私有成员十分相似，但有一点不同，保护成员在派生类（即子类）中是可访问的。(这里牵扯了继承）
