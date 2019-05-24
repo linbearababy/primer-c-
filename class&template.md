@@ -82,3 +82,4 @@ c++11 新标准规定，可以给数据成员提供一个类内初始值（in-cl
 综上所述，我们想要一个带有这些功能的Sales_data:
 ![](https://github.com/linbearababy/primer-c-/blob/master/pictures/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%2017.18.52.png)
 
+![](https://github.com/linbearababy/primer-c-/blob/master/pictures/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%2014.06.38.png)
