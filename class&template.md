@@ -107,3 +107,5 @@ c++11 新标准规定，可以给数据成员提供一个类内初始值（in-cl
         std::string isbn() const { return this->bookNo; }
 因为 this 的目的总是指向“这个”对象，所以 this 是一个常量指针（参见2.4.2节，第56页），我们不允许改变 this 中保存的地址。
 
+![](https://github.com/linbearababy/primer-c-/blob/master/pictures/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%2014.13.04.png)
+
