@@ -193,6 +193,8 @@ c++中，我们使用 访问说明符 加强类的封装性。
     public & private
 一个类可以包0个或者多个访问说明符，而且对于某个访问说明符能出现多少次也没有严格限定。每个访问说明符指定了接下来的成员的访问级别，其有效范围直到下一个访问符出现为止。
 
+![](https://github.com/linbearababy/primer-c-/blob/master/pictures/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%2019.18.41.png)
+
 （2）class & struct 
 
 两者差不多含义和用法，唯一的区别在于，struct and class 的默认访问权限不一样。
