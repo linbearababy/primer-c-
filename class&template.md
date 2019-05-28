@@ -159,5 +159,9 @@ print函数不负责换行。执行输出任务的函数应尽量减少对格式
 
 # 合成的默认构造函数
 
-https://github.com/linbearababy/primer-c-/blob/master/pi
+![](https://github.com/linbearababy/primer-c-/blob/master/pictures/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%2018.08.39.png)
+
+# 定义Sales_data 的构造函数
+
+
 
