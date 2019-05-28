@@ -199,3 +199,7 @@ c++中，我们使用 访问说明符 加强类的封装性。
 
 两者差不多含义和用法，唯一的区别在于，struct and class 的默认访问权限不一样。
 
+![](https://github.com/linbearababy/primer-c-/blob/master/pictures/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%2019.18.56.png)
+
+# 友元 
+
