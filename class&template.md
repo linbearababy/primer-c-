@@ -109,6 +109,17 @@ c++11 新标准规定，可以给数据成员提供一个类内初始值（in-cl
 
 ![](https://github.com/linbearababy/primer-c-/blob/master/pictures/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%2014.13.04.png)
 
+# 类的作用域和成员函数
+
+在类的成员函数的定义嵌套在类的作用域中，成员函数体可以随意使用类中的其他成员元，无须次序。因为编译器是先编写成员声明，然后才轮到成员函数体。
+
 ![](https://github.com/linbearababy/primer-c-/blob/master/pictures/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%2003.35.10.png)
 
+# 在类外部定义成员函数：
+
 ![](https://github.com/linbearababy/primer-c-/blob/master/pictures/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%2003.35.32.png)
+
+# 定义一个返回this对象的函数
+
+在这里举一个combine函数的例子
+
