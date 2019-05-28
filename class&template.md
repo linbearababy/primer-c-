@@ -163,5 +163,13 @@ print函数不负责换行。执行输出任务的函数应尽量减少对格式
 
 # 定义Sales_data 的构造函数
 
+![](https://github.com/linbearababy/primer-c-/blob/master/pictures/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%2018.17.39.png)
+
+(1) =default 
+
+因为构造函数不接受任何实参，所以他是一个默认构造函数。
+在参数列表后面写上  “ = default ”， 来要求编译器生成构造函数。如果 =default 在类的内部，则默认构造函数是内联的，若在外部，则是外联的。
+
+（2） 构造函数初始值列表
 
 
