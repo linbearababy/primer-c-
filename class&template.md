@@ -229,5 +229,6 @@ c++中，我们使用 访问说明符 加强类的封装性。
 
 举 screen and window_mgr 的例子来介绍：
 
+![](https://github.com/linbearababy/primer-c-/blob/master/pictures/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-29%2013.04.23.png)
 
 
